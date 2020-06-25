@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BandCApplicationsModelStoreContainer" CdmEntityContainer="BandCApplicationsEntities1">
+    <EntitySetMapping Name="BoardMembers">
+      <EntityTypeMapping TypeName="BandCApplicationsModel.BoardMember">
+        <MappingFragment StoreEntitySet="BoardMembers">
+          <ScalarProperty Name="BoardMemberkey" ColumnName="BoardMemberkey" />
+          <ScalarProperty Name="PersonKey" ColumnName="PersonKey" />
+          <ScalarProperty Name="BoardKey" ColumnName="BoardKey" />
+          <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_BoardsandCommissions">
+      <EntityTypeMapping TypeName="BandCApplicationsModel.M_BoardsandCommissions">
+        <MappingFragment StoreEntitySet="M_BoardsandCommissions">
+          <ScalarProperty Name="BoardCommissionKey" ColumnName="BoardCommissionKey" />
+          <ScalarProperty Name="Board_or_Commission_Name" ColumnName="Board_or_Commission_Name" />
+          <ScalarProperty Name="ApplicationXML" ColumnName="ApplicationXML" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Default_Contact_Name" ColumnName="Default_Contact_Name" />
+          <ScalarProperty Name="Default_Email" ColumnName="Default_Email" />
+          <ScalarProperty Name="Default_Phone" ColumnName="Default_Phone" />
+          <ScalarProperty Name="Default_Web" ColumnName="Default_Web" />
+          <ScalarProperty Name="Appointment_Type" ColumnName="Appointment_Type" />
+          <ScalarProperty Name="Authority" ColumnName="Authority" />
+          <ScalarProperty Name="TermLength" ColumnName="TermLength" />
+          <ScalarProperty Name="Special_Requirements" ColumnName="Special_Requirements" />
+          <ScalarProperty Name="Staff_Contact" ColumnName="Staff_Contact" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="BandCApplicationsModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="PersonKey" ColumnName="PersonKey" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="BusinessName" ColumnName="BusinessName" />
+          <ScalarProperty Name="BusinessStreetAddress" ColumnName="BusinessStreetAddress" />
+          <ScalarProperty Name="BusinessCity" ColumnName="BusinessCity" />
+          <ScalarProperty Name="BusinessZipCode" ColumnName="BusinessZipCode" />
+          <ScalarProperty Name="HomeTelephone" ColumnName="HomeTelephone" />
+          <ScalarProperty Name="BusinessTelephone" ColumnName="BusinessTelephone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="Ward" ColumnName="Ward" />
+          <ScalarProperty Name="Resident" ColumnName="Resident" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AccessID" ColumnName="AccessID" />
+          <ScalarProperty Name="Confirmed" ColumnName="Confirmed" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="License" ColumnName="License" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person_Applications">
+      <EntityTypeMapping TypeName="BandCApplicationsModel.Person_Applications">
+        <MappingFragment StoreEntitySet="Person_Applications">
+          <ScalarProperty Name="ApplicationKey" ColumnName="ApplicationKey" />
+          <ScalarProperty Name="BoardCommissionKey" ColumnName="BoardCommissionKey" />
+          <ScalarProperty Name="PersonKey" ColumnName="PersonKey" />
+          <ScalarProperty Name="Supplemental_Answers" ColumnName="Supplemental_Answers" />
+          <ScalarProperty Name="ApplicationDate" ColumnName="ApplicationDate" />
+          <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+          <ScalarProperty Name="Appointed" ColumnName="Appointed" />
+          <ScalarProperty Name="Expired_Notified" ColumnName="Expired_Notified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="BandCApplicationsModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsersInRoles">
+      <EntityTypeMapping TypeName="BandCApplicationsModel.UsersInRole">
+        <MappingFragment StoreEntitySet="UsersInRoles">
+          <ScalarProperty Name="PersonKey" ColumnName="PersonKey" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Voluntary_Survey">
+      <EntityTypeMapping TypeName="BandCApplicationsModel.Voluntary_Survey">
+        <MappingFragment StoreEntitySet="Voluntary_Survey">
+          <ScalarProperty Name="Voluntarykey" ColumnName="Voluntarykey" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Source_Details" ColumnName="Source_Details" />
+          <ScalarProperty Name="Disability" ColumnName="Disability" />
+          <ScalarProperty Name="Ethnic_Category" ColumnName="Ethnic_Category" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Age_Category" ColumnName="Age_Category" />
+          <ScalarProperty Name="BoardAppliedFor" ColumnName="BoardAppliedFor" />
+          <ScalarProperty Name="DateApplied" ColumnName="DateApplied" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

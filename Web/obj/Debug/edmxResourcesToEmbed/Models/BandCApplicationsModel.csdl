@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BandCApplicationsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BoardMember">
+    <Key>
+      <PropertyRef Name="BoardMemberkey" />
+    </Key>
+    <Property Name="BoardMemberkey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonKey" Type="Int32" Nullable="false" />
+    <Property Name="BoardKey" Type="Int32" Nullable="false" />
+    <Property Name="AppointmentDate" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="M_BoardsandCommissions">
+    <Key>
+      <PropertyRef Name="BoardCommissionKey" />
+    </Key>
+    <Property Name="BoardCommissionKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Board_or_Commission_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApplicationXML" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Default_Contact_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Default_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Default_Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Default_Web" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Appointment_Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Authority" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TermLength" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="Special_Requirements" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Staff_Contact" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonKey" />
+    </Key>
+    <Property Name="PersonKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StreetAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BusinessName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessStreetAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessCity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="HomeTelephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BusinessTelephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ward" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Resident" Type="Boolean" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AccessID" Type="Int32" />
+    <Property Name="Confirmed" Type="Boolean" />
+    <Property Name="Age" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="License" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Person_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationKey" />
+    </Key>
+    <Property Name="ApplicationKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BoardCommissionKey" Type="Int32" Nullable="false" />
+    <Property Name="PersonKey" Type="Int32" Nullable="false" />
+    <Property Name="Supplemental_Answers" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApplicationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Accepted" Type="Boolean" />
+    <Property Name="Appointed" Type="Boolean" />
+    <Property Name="Expired_Notified" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UsersInRoles" Relationship="Self.UsersInRoleRole" FromRole="Roles" ToRole="UsersInRoles" />
+  </EntityType>
+  <EntityType Name="UsersInRole">
+    <Key>
+      <PropertyRef Name="PersonKey" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="PersonKey" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.UsersInRoleRole" FromRole="UsersInRoles" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Voluntary_Survey">
+    <Key>
+      <PropertyRef Name="Voluntarykey" />
+    </Key>
+    <Property Name="Voluntarykey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Source" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Source_Details" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Disability" Type="Boolean" />
+    <Property Name="Ethnic_Category" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="Age_Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BoardAppliedFor" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DateApplied" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="UsersInRoleRole">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="UsersInRoles" Type="Self.UsersInRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BandCApplicationsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BoardMembers" EntityType="Self.BoardMember" />
+    <EntitySet Name="M_BoardsandCommissions" EntityType="Self.M_BoardsandCommissions" />
+    <EntitySet Name="People" EntityType="Self.Person" />
+    <EntitySet Name="Person_Applications" EntityType="Self.Person_Applications" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="UsersInRoles" EntityType="Self.UsersInRole" />
+    <EntitySet Name="Voluntary_Survey" EntityType="Self.Voluntary_Survey" />
+    <AssociationSet Name="UsersInRoleRole" Association="Self.UsersInRoleRole">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
