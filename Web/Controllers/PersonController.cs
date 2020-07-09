@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using System.Xml.Linq;
 using Web.Models;
 
 namespace Web.Controllers
@@ -95,7 +96,10 @@ namespace Web.Controllers
             var data = db.M_BoardsandCommissions.Find(id);
             if (data != null)
             {
-                model.ApplicationXml = data.ApplicationXML;
+                
+
+                XDocument doc = XDocument.Parse(data.ApplicationXML);
+                model.ApplicationXml = doc.ToString();
             }
             return View(model);
         }
